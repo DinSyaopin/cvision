@@ -4,43 +4,43 @@ import java.util.Date;
 
 public class Employee {
 
-    private int id;
+    private long id;
     private String surname;
     private String name;
     private String patronymic;
-    private int id_gender;
+    private int idGender;
     private Date birthday;
-    private String phone_number;
+    private String phoneNumber;
     private String email;
-    private Date employment_date;
-    private Date dismissal_date;
+    private Date employmentDate;
+    private Date dismissalDate;
     private int id_position;
     private int payment;
-    private boolean is_manager;
-    private int id_department;
+    private boolean isManager;
+    private long idDepartment;
 
-    public Employee(int id, String surname, String name, String patronymic, int id_gender, Date birthday, String phone_number, String email, Date employment_date, Date dismissal_date, int id_position, int payment, boolean is_manager, int id_department) {
+    public Employee(long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, Date dismissalDate, int id_position, int payment, boolean isManager, long idDepartment) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
-        this.id_gender = id_gender;
+        this.idGender = idGender;
         this.birthday = birthday;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.email = email;
-        this.employment_date = employment_date;
-        this.dismissal_date = dismissal_date;
+        this.employmentDate = employmentDate;
+        this.dismissalDate = dismissalDate;
         this.id_position = id_position;
         this.payment = payment;
-        this.is_manager = is_manager;
-        this.id_department = id_department;
+        this.isManager = isManager;
+        this.idDepartment = idDepartment;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -68,12 +68,12 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public int getId_gender() {
-        return id_gender;
+    public int getIdGender() {
+        return idGender;
     }
 
-    public void setId_gender(int id_gender) {
-        this.id_gender = id_gender;
+    public void setIdGender(int idGender) {
+        this.idGender = idGender;
     }
 
     public Date getBirthday() {
@@ -84,12 +84,12 @@ public class Employee {
         this.birthday = birthday;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -100,20 +100,20 @@ public class Employee {
         this.email = email;
     }
 
-    public Date getEmployment_date() {
-        return employment_date;
+    public Date getEmploymentDate() {
+        return employmentDate;
     }
 
-    public void setEmployment_date(Date employment_date) {
-        this.employment_date = employment_date;
+    public void setEmploymentDate(Date employmentDate) {
+        this.employmentDate = employmentDate;
     }
 
-    public Date getDismissal_date() {
-        return dismissal_date;
+    public Date getDismissalDate() {
+        return dismissalDate;
     }
 
-    public void setDismissal_date(Date dismissal_date) {
-        this.dismissal_date = dismissal_date;
+    public void setDismissalDate(Date dismissalDate) {
+        this.dismissalDate = dismissalDate;
     }
 
     public int getId_position() {
@@ -132,20 +132,20 @@ public class Employee {
         this.payment = payment;
     }
 
-    public boolean isIs_manager() {
-        return is_manager;
+    public boolean isManager() {
+        return isManager;
     }
 
-    public void setIs_manager(boolean is_manager) {
-        this.is_manager = is_manager;
+    public void setManager(boolean manager) {
+        this.isManager = manager;
     }
 
-    public int getId_department() {
-        return id_department;
+    public long getIdDepartment() {
+        return idDepartment;
     }
 
-    public void setId_department(int id_department) {
-        this.id_department = id_department;
+    public void setIdDepartment(long idDepartment) {
+        this.idDepartment = idDepartment;
     }
 
     @Override
@@ -155,16 +155,16 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
-                ", id_gender=" + id_gender +
+                ", idGender=" + idGender +
                 ", birthday=" + birthday +
-                ", phone_number='" + phone_number + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", employment_date=" + employment_date +
-                ", dismissal_date=" + dismissal_date +
+                ", employmentDate=" + employmentDate +
+                ", dismissalDate=" + dismissalDate +
                 ", id_position=" + id_position +
                 ", payment=" + payment +
-                ", is_manager=" + is_manager +
-                ", id_department=" + id_department +
+                ", isManager=" + isManager +
+                ", idDepartment=" + idDepartment +
                 '}';
     }
 }

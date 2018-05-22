@@ -3,19 +3,19 @@ package org.temkinda.cvision.model;
 import java.util.Date;
 
 public class Department {
-    private int id;
-    private String dep_name;
-    private Date creation_date;
-    private int id_parent_department;
+    private long id;
+    private String depName;
+    private Date creationDate;
+    private long idParentDepartment;
 
-    public Department(int id, String dep_name, Date creation_date, int id_parent_department) {
+    public Department(long id, String depName, Date creationDate, long idParentDepartment) {
         this.id = id;
-        this.dep_name = dep_name;
-        this.creation_date = creation_date;
-        this.id_parent_department = id_parent_department;
+        this.depName = depName;
+        this.creationDate = creationDate;
+        this.idParentDepartment = idParentDepartment;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -23,37 +23,37 @@ public class Department {
         this.id = id;
     }
 
-    public String getDep_name() {
-        return dep_name;
+    public String getDepName() {
+        return depName;
     }
 
-    public void setDep_name(String dep_name) {
-        this.dep_name = dep_name;
+    public void setDepName(String depName) {
+        this.depName = depName;
     }
 
-    public Date getCreation_date() {
-        return creation_date;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreation_date(Date creation_date) {
-        this.creation_date = creation_date;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
-    public int getId_parent_department() {
-        return id_parent_department;
+    public long getIdParentDepartment() {
+        return idParentDepartment;
     }
 
-    public void setId_parent_department(int id_parent_department) {
-        this.id_parent_department = id_parent_department;
+    public void setIdParentDepartment(long idParentDepartment) {
+        this.idParentDepartment = idParentDepartment;
     }
 
     @Override
     public String toString() {
         return "Department{" +
                 "id=" + id +
-                ", dep_name='" + dep_name + '\'' +
-                ", creation_date=" + creation_date +
-                ", id_parent_department=" + id_parent_department +
+                ", depName='" + depName + '\'' +
+                ", creationDate=" + creationDate +
+                ", idParentDepartment=" + idParentDepartment +
                 '}';
     }
 }
