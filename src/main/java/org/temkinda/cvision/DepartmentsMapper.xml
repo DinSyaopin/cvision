@@ -1,0 +1,5 @@
+<mapper namespace = "org.temkinda.cvision.DepartmentMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into departments()
+    </insert>
+</mapper>
