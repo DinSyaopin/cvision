@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.temkinda.cvision.mapper.DepartmentMapper">
+    <resultMap id="department" type="org.temkinda.cvision.model.Department" autoMapping="true">
+    <result property="id" column="id"/>
+    <result property="depName" column="dep_name"/>
+    <result property="creationDate" column="creation_date"/>
+    </resultMap>
+
+    <select id="get"  parameterType="java.lang.Long" resultMap = "department">
+        SELECT * FROM company_structure.departments WHERE id = #{id} ORDER BY id
+    </select>
+    <insert
+            id="insertDepartment"
+            parameterType="org.temkinda.cvision.model.Department">
+        INSERT INTO company_structure.departments (dep_name, creation_date, id_parent_department)
+        VALUES (#{depName}, #{creationDate}, #{idParentDepartment})
+    </insert>
+    
+</mapper>

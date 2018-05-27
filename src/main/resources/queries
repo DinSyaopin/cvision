@@ -1,0 +1,102 @@
+create table departments (
+  id serial,
+  dep_name text not null,
+  creation_date date,
+  id_parent_department integer,
+  primary key (id),
+  foreign key (id_parent_department) references departments (id),
+  unique (dep_name)
+);
+
+create table positions (
+  id serial,
+  position text not null,
+  primary key (id),
+  unique (position)
+);
+
+create table genders (
+  id serial,
+  gender text not null,
+  primary key (id),
+  unique (gender),
+  check (id <= 2)
+);
+
+create table employees (
+  id serial,
+  surname text not null,
+  name text not null,
+  patronymic text,
+  id_gender int not null,
+  birthday date not null,
+  phone_number varchar(20) not null,
+  email char(30) not null,
+  employment_date date not null,
+  dismissal_date date,
+  id_position int not null,
+  payment int not null,
+  is_manager boolean default false,
+  id_department integer not null,
+  primary key (id),
+  foreign key (id_department) references departments(id),
+  foreign key (id_position) references positions(id),
+  foreign key (id_gender) references genders(id)
+);
+
+insert into departments values (default, 'департамент управления', current_timestamp, null);
+insert into departments values (default, 'департамент хозяйственной части', current_timestamp, 1);
+insert into departments values (default, 'департамент строительства', current_timestamp, 1);
+insert into departments values (default, 'департамент технологий', current_timestamp, 1);
+insert into departments values (default, 'департамент автоматизации проектирования', current_timestamp, 1);
+insert into departments values (default, 'департамент системотехники', current_timestamp, 5);
+insert into departments values (default, 'департамент приложений', current_timestamp, 5);
+
+insert into positions values (default, 'генеральный директор');
+insert into positions values (default, 'управляющий делами');
+insert into positions values (default, 'начальник департамента');
+insert into positions values (default, 'инженер 3 категории');
+insert into positions values (default, 'инженер 2 категории');
+insert into positions values (default, 'инженер 1 категории');
+insert into positions values (default, 'ведущий инженер');
+
+insert into genders values (default, 'мужской');
+insert into genders values (default, 'женский');
+
+insert into employees values (1, 'Коневич', 'Петр', 'Борисович', 1, '01.01.1990',
+                                       89021516643, 'konevichpb@company.com', '03.03.2017', '03.03.2017', 1, 300000, true, 1);
+update employees set is_manager = false where surname = 'Коневич';
+insert into employees values (default , 'Мясной', 'Николай', 'Альбертович', 1, '31.12.1975',
+                                 89271234567, 'myasnoyna@company.com', '03.03.2017', null , 1, 300000, true, 1);
+insert into employees values (default, 'Лошадушкин', 'Борис', 'Петрович', 1, '01.01.1989',
+                                       89178153191, 'loshadushkinbp@company.com', '03.03.2017', null, 2, 100000, false, 1);
+insert into employees values (default, 'Ослович', 'Артур', 'Вениаминович', 1, '14.07.1987',
+                                       89128143066, 'oslovichav@company.com', '03.03.2017', null, 3, 100000, true , 2);
+insert into employees values (default, 'Быков', 'Игнатий', 'Арнольдович', 1, '21.05.1980',
+                                       89029194829, 'bykovia@company.com', '03.03.2017', null, 2, 100000, true, 3);
+insert into employees values (default, 'Кузнецов', 'Александр', 'Иванович', 1, '01.12.1974',
+                                       89178123911, 'kuznetsovai@company.com', '03.03.2017', null, 2, 100000, true, 4);
+insert into employees values (default, 'Кузнецов', 'Борис', 'Петрович', 1, '11.11.1965',
+                                       89029182934, 'kuznetsovbp@company.com', '03.03.2017', null, 2, 100000, true, 5);
+insert into employees values (default, 'Баранова', 'Ирина', 'Максимовна', 2, '13.12.1976',
+                                       89931718383, 'baranovaim@company.com', '03.03.2017', null, 2, 100000, true, 6);
+insert into employees values (default, 'Козина', 'София', 'Макаровна', 1, '19.08.1986',
+                                       89184728181, 'kozinasm@company.com', '03.03.2017', null, 2, 100000, true, 7);
+
+
+
+select * from departments;
+select * from positions;
+select * from genders;
+select * from employees;
+
+/*Количество сотрудников департамента управления*/
+select count(*) from employees as quantityOfEmployees
+  where dismissal_date  is null and id_department = 1;
+
+
+
+drop table employees;
+drop table genders;
+drop table positions;
+drop table departments;

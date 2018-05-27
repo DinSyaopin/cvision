@@ -8,6 +8,9 @@ public class Department {
     private Date creationDate;
     private long idParentDepartment;
 
+    public Department() {
+    }
+
     public Department(long id, String depName, Date creationDate, long idParentDepartment) {
         this.id = id;
         this.depName = depName;
