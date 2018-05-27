@@ -42,4 +42,9 @@ public class CVisionController {
                                      @RequestParam("depNameNew") String depNameNew) {
         service.changeNameDepartment(depName, depNameNew);
     }
+
+    @RequestMapping("/deleteDepartment")
+    public void deleteDepartment(@RequestParam("depName") String depName) {
+        service.deleteDepartment(depName);
+    }
 }

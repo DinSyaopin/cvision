@@ -28,4 +28,8 @@ public class Service {
     public void changeNameDepartment(String depName, String depNameNew) {
         departmentMapper.changeNameDepartment(depName, depNameNew);
     }
+
+    public void deleteDepartment(String depName) {
+        departmentMapper.deleteDepartment(depName);
+    }
 }

@@ -11,18 +11,18 @@
     <result property="creationDate" column="creation_date"/>
     </resultMap>
 
-    <select id="get"  parameterType="java.lang.Long" resultMap = "department">
+    <select id="get" parameterType="java.lang.Long" resultMap = "department">
         SELECT * FROM company_structure.departments WHERE id = #{id} ORDER BY id
     </select>
-    <insert
-            id="insertDepartment"
-            parameterType="org.temkinda.cvision.model.Department">
+    <insert id="insertDepartment" parameterType="org.temkinda.cvision.model.Department">
         INSERT INTO company_structure.departments (dep_name, creation_date, id_parent_department)
         VALUES (#{depName}, #{creationDate}, #{idParentDepartment})
     </insert>
-    <update id="changeNameDepartment"
-            parameterType="org.temkinda.cvision.model.Department">
+    <update id="changeNameDepartment" parameterType="org.temkinda.cvision.model.Department">
         update company_structure.departments set dep_name = #{depNameNew}
         where dep_name = #{depName}
     </update>
+    <delete id="deleteDepartment" parameterType="org.temkinda.cvision.model.Department">
+        delete from company_structure.departments where dep_name = #{depName}
+    </delete>
 </mapper>
