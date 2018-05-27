@@ -13,4 +13,5 @@ public interface DepartmentMapper {
     Department get(long id);
     //void insertDepartment(long id, String depName, Date creationDate, long idParentDepartment);
     void insertDepartment(String depName, Date creationDate, long idParentDepartment);
+    void changeNameDepartment(String depName, String depNameNew);
 }

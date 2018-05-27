@@ -29,11 +29,17 @@ public class CVisionController {
         return service.selectDepartmentById(id);
     }
     */
-    @RequestMapping(value = "/insertDepartment")
+    @RequestMapping("/insertDepartment")
     public void insertDepartment(@RequestParam("depName") String depName, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("creationDate") Date creationDate,
                                  @RequestParam("idParentDepartment") long idParentDepartment) {
         //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         //Date creationDate = simpleDateFormat.parse(creationDateString);
         service.insertDepartment(depName, creationDate, idParentDepartment);
+    }
+
+    @RequestMapping("/changeNameDepartment")
+    public void changeNameDepartment(@RequestParam("depName") String depName,
+                                     @RequestParam("depNameNew") String depNameNew) {
+        service.changeNameDepartment(depName, depNameNew);
     }
 }

@@ -20,5 +20,9 @@
         INSERT INTO company_structure.departments (dep_name, creation_date, id_parent_department)
         VALUES (#{depName}, #{creationDate}, #{idParentDepartment})
     </insert>
-    
+    <update id="changeNameDepartment"
+            parameterType="org.temkinda.cvision.model.Department">
+        update company_structure.departments set dep_name = #{depNameNew}
+        where dep_name = #{depName}
+    </update>
 </mapper>

@@ -24,4 +24,8 @@ public class Service {
     public void insertDepartment(String depName, Date creationDate, long idParentDepartment) {
         departmentMapper.insertDepartment(depName, creationDate, idParentDepartment);
     }
+
+    public void changeNameDepartment(String depName, String depNameNew) {
+        departmentMapper.changeNameDepartment(depName, depNameNew);
+    }
 }
