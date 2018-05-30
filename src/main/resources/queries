@@ -23,8 +23,9 @@ create table genders (
   check (id <= 2)
 );
 
+create sequence employees_id_seq;
 create table employees (
-  id serial,
+  id int not null default nextval('employees_id_seq'),
   surname text not null,
   name text not null,
   patronymic text,
@@ -34,13 +35,13 @@ create table employees (
   email char(30) not null,
   employment_date date not null,
   dismissal_date date,
-  id_position int not null,
+  idPosition int not null,
   payment int not null,
   is_manager boolean default false,
   id_department integer not null,
   primary key (id),
   foreign key (id_department) references departments(id),
-  foreign key (id_position) references positions(id),
+  foreign key (idPosition) references positions(id),
   foreign key (id_gender) references genders(id)
 );
 
@@ -63,9 +64,8 @@ insert into positions values (default, 'ведущий инженер');
 insert into genders values (default, 'мужской');
 insert into genders values (default, 'женский');
 
-insert into employees values (1, 'Коневич', 'Петр', 'Борисович', 1, '01.01.1990',
+insert into employees values (default, 'Коневич', 'Петр', 'Борисович', 1, '01.01.1990',
                                        89021516643, 'konevichpb@company.com', '03.03.2017', '03.03.2017', 1, 300000, true, 1);
-update employees set is_manager = false where surname = 'Коневич';
 insert into employees values (default , 'Мясной', 'Николай', 'Альбертович', 1, '31.12.1975',
                                  89271234567, 'myasnoyna@company.com', '03.03.2017', null , 1, 300000, true, 1);
 insert into employees values (default, 'Лошадушкин', 'Борис', 'Петрович', 1, '01.01.1989',

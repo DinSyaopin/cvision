@@ -14,12 +14,16 @@ public class Employee {
     private String email;
     private Date employmentDate;
     private Date dismissalDate;
-    private int id_position;
+    private int idPosition;
     private int payment;
     private boolean isManager;
     private long idDepartment;
 
-    public Employee(long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, Date dismissalDate, int id_position, int payment, boolean isManager, long idDepartment) {
+    public Employee() {
+
+    }
+
+    public Employee(long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, Date dismissalDate, int idPosition, int payment, boolean isManager, long idDepartment) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -30,7 +34,7 @@ public class Employee {
         this.email = email;
         this.employmentDate = employmentDate;
         this.dismissalDate = dismissalDate;
-        this.id_position = id_position;
+        this.idPosition = idPosition;
         this.payment = payment;
         this.isManager = isManager;
         this.idDepartment = idDepartment;
@@ -116,12 +120,12 @@ public class Employee {
         this.dismissalDate = dismissalDate;
     }
 
-    public int getId_position() {
-        return id_position;
+    public int getIdPosition() {
+        return idPosition;
     }
 
-    public void setId_position(int id_position) {
-        this.id_position = id_position;
+    public void setIdPosition(int idPosition) {
+        this.idPosition = idPosition;
     }
 
     public int getPayment() {
@@ -161,7 +165,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", employmentDate=" + employmentDate +
                 ", dismissalDate=" + dismissalDate +
-                ", id_position=" + id_position +
+                ", idPosition=" + idPosition +
                 ", payment=" + payment +
                 ", isManager=" + isManager +
                 ", idDepartment=" + idDepartment +

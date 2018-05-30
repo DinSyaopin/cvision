@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.temkinda.cvision.mapper.EmployeeMapper">
+    <resultMap id="employee" type="org.temkinda.cvision.model.Employee" autoMapping="true">
+        <result property="id" column="id"/>
+        <result property="surname" column="surname"/>
+        <result property="name" column="name"/>
+        <result property="patronymic" column="patronymic"/>
+        <result property="idGender" column="id_gender"/>
+        <result property="birthday" column="birthday"/>
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="email" column="email"/>
+        <result property="employmentDate" column="employment_date"/>
+        <result property="dismissalDate" column="dismissal_date"/>
+        <result property="idPosition" column="id_position"/>
+        <result property="payment" column="payment"/>
+        <result property="isManager" column="is_manager"/>
+        <result property="idDepartment" column="id_department"/>
+    </resultMap>
+
+    <select id="get" parameterType="java.lang.Long" resultMap="employee">
+        select * from employees
+        where id = #{id};
+    </select>
+</mapper>
