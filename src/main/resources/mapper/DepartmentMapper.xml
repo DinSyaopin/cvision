@@ -9,6 +9,7 @@
     <result property="id" column="id"/>
     <result property="depName" column="dep_name"/>
     <result property="creationDate" column="creation_date"/>
+    <result property="idParentDepartment"   column="id_parent_department"/>
     </resultMap>
     <!--
     <resultMap id="detailedDepartmentInfo" type="Department">
@@ -24,6 +25,11 @@
     <select id="selectDepartmentById" parameterType="java.lang.Long" resultMap = "department">
         select * from departments
         where id = #{id} order by id
+    </select>
+
+    <select id="selectChildDepartments" parameterType="java.lang.Long" resultMap="department">
+        select * from departments
+        where id_parent_department = #{id}
     </select>
 
     <insert id="insertDepartment" parameterType="Department">

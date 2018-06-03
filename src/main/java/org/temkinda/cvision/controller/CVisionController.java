@@ -8,7 +8,9 @@ import org.temkinda.cvision.model.Department;
 import org.temkinda.cvision.model.DepartmentInfo;
 import org.temkinda.cvision.model.Employee;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cvision")
@@ -53,5 +55,10 @@ public class CVisionController {
     @RequestMapping("/showDepartmentInfo/{id}")
     public DepartmentInfo showDepartmentInfo(@PathVariable Long id) {
         return service.showDepartmentInfo(id);
+    }
+
+    @RequestMapping("/showChildDepartments/{idOfParent}")
+    public List<Department> showChildDepartments(@PathVariable Long idOfParent) {
+        return service.selectChildDepartments(idOfParent);
     }
 }

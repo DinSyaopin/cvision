@@ -9,6 +9,7 @@ import org.temkinda.cvision.model.DepartmentInfo;
 import org.temkinda.cvision.model.Employee;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Component
@@ -54,5 +55,10 @@ public class Service {
         Department department = departmentMapper.selectDepartmentById(id);
         int quantityOfEmployees = employeeMapper.countEmployeesFromDepartment(id);
         return new DepartmentInfo(department, boss, quantityOfEmployees);
+    }
+
+    //D5. Takes child departments of current department.
+    public List<Department> selectChildDepartments(Long id) {
+        return departmentMapper.selectChildDepartments(id);
     }
 }

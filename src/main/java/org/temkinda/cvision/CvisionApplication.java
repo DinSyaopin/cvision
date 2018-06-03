@@ -12,6 +12,7 @@ import org.temkinda.cvision.model.Employee;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public class CvisionApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Department department = departmentMapper.selectDepartmentById(1);
+        /*Department department = departmentMapper.selectDepartmentById(1);
         System.out.print("Дата создания департамента: ");
         System.out.println(department.getCreationDate());
         System.out.print("Название департамента: ");
@@ -44,6 +45,11 @@ public class CvisionApplication implements CommandLineRunner {
         System.out.println(employee.getSurname());
         System.out.print("Имя сотрудника: ");
         System.out.println(employee.getName());
+        ArrayList<Department> departments = departmentMapper.selectChildDepartments(1);
+        for (Department dep:
+             departments) {
+            System.out.println(dep.toString());
+        }
 
         //Department department1 = departmentMapper.showDepartmentInfo("департамент управления");
         //System.out.println(department1.toString());
