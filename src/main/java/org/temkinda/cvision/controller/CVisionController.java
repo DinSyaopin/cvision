@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.temkinda.cvision.Service;
 import org.temkinda.cvision.model.Department;
+import org.temkinda.cvision.model.DepartmentInfo;
 import org.temkinda.cvision.model.Employee;
 
 import java.util.Date;
@@ -15,11 +16,6 @@ public class CVisionController {
 
     @Autowired
     private Service service;
-
-    /*public void setService(Service service) {
-        this.service = service;
-    }*/
-
 
     @RequestMapping("/selectEmployeeById/{id}")
     public Employee selectEmployeeById(@PathVariable Long id) {
@@ -52,5 +48,10 @@ public class CVisionController {
     @RequestMapping("/deleteDepartment")
     public void deleteDepartment(@RequestParam("depName") String depName) {
         service.deleteDepartment(depName);
+    }
+
+    @RequestMapping("/showDepartmentInfo/{id}")
+    public DepartmentInfo showDepartmentInfo(@PathVariable Long id) {
+        return service.showDepartmentInfo(id);
     }
 }

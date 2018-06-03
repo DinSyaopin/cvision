@@ -5,30 +5,52 @@
 
 
 <mapper namespace="org.temkinda.cvision.mapper.DepartmentMapper">
-    <resultMap id="department" type="org.temkinda.cvision.model.Department" autoMapping="true">
+    <resultMap id="department" type="Department" autoMapping="true">
     <result property="id" column="id"/>
     <result property="depName" column="dep_name"/>
     <result property="creationDate" column="creation_date"/>
     </resultMap>
+    <!--
+    <resultMap id="detailedDepartmentInfo" type="Department">
+        <result property="depName" column="department_name"/>
+        <result property="creationDate" column="department_creation_date"/>
+        <association property="employee" resultMap="employeeResult"/>
+    </resultMap>
+    <resultMap id="employeeResult" type="Employee" autoMapping="true">
+        <result property="surname" column="employee_surname"/>
+    </resultMap>
+    -->
 
-    <select id="get" parameterType="java.lang.Long" resultMap = "department">
-
+    <select id="selectDepartmentById" parameterType="java.lang.Long" resultMap = "department">
         select * from departments
-        <if test="id != null">
         where id = #{id} order by id
-        </if>
     </select>
-    <insert id="insertDepartment" parameterType="org.temkinda.cvision.model.Department">
+
+    <insert id="insertDepartment" parameterType="Department">
         insert into departments (dep_name, creation_date, id_parent_department)
         <if test="#{depName} != dep_name">
             values (#{depName}, #{creationDate}, #{idParentDepartment})
         </if>
     </insert>
-    <update id="changeNameDepartment" parameterType="org.temkinda.cvision.model.Department">
+    <update id="changeNameDepartment" parameterType="Department">
         update departments set dep_name = #{depNameNew}
         where dep_name = #{depName}
     </update>
-    <delete id="deleteDepartment" parameterType="org.temkinda.cvision.model.Department">
+    <delete id="deleteDepartment" parameterType="Department">
         delete from departments where dep_name = #{depName}
     </delete>
+
+    <!--
+    <select id="showDepartmentInfo" parameterType="java.lang.String" resultMap="detailedDepartmentInfo">
+        select t1.dep_name as department_name, t1.creation_date as department_creation_date, t2.surname as employee_surname,
+            t1.number_of_employees as department_number_of_employees
+        from (select d.dep_name, d.creation_date, d.id,  count(*) as number_of_employees
+              from departments d
+                  join employees e on d.id = e.id_department
+              where d.dep_name = #{depName}
+              group by d.id) t1
+            join (select surname, id_department from employees
+            where id_department = (select id from departments where dep_name = #{depName})
+                  and is_manager = 'yes') t2 on t1.id = t2.id_department
+    </select>-->
 </mapper>

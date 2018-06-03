@@ -7,5 +7,7 @@ import org.temkinda.cvision.model.Employee;
 @Mapper
 @Component
 public interface EmployeeMapper {
-    Employee get(long id);
+    Employee selectEmployeeById(long id);
+    Employee selectBossOfDepartment(long id);
+    int countEmployeesFromDepartment(long id);
 }

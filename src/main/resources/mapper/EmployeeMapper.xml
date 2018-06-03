@@ -21,8 +21,18 @@
         <result property="idDepartment" column="id_department"/>
     </resultMap>
 
-    <select id="get" parameterType="java.lang.Long" resultMap="employee">
+    <select id="selectEmployeeById" parameterType="java.lang.Long" resultMap="employee">
         select * from employees
-        where id = #{id};
+        where id = #{id}
+    </select>
+    <select id="selectBossOfDepartment" parameterType="java.lang.Long" resultMap="employee">
+        select * from employees
+        where id_department = #{id} and is_manager and dismissal_date is null
+    </select>
+    <select id="countEmployeesFromDepartment" parameterType="java.lang.Long" resultType="java.lang.Integer">
+        select count(id)
+        from employees
+        where id_department = #{id}
+        group by id_department
     </select>
 </mapper>

@@ -24,6 +24,7 @@ create table genders (
 );
 
 create sequence employees_id_seq;
+
 create table employees (
   id int not null default nextval('employees_id_seq'),
   surname text not null,
@@ -35,13 +36,13 @@ create table employees (
   email char(30) not null,
   employment_date date not null,
   dismissal_date date,
-  idPosition int not null,
+  id_position int not null,
   payment int not null,
   is_manager boolean default false,
   id_department integer not null,
   primary key (id),
   foreign key (id_department) references departments(id),
-  foreign key (idPosition) references positions(id),
+  foreign key (id_position) references positions(id),
   foreign key (id_gender) references genders(id)
 );
 
