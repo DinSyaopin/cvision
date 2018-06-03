@@ -36,7 +36,10 @@
         set id_parent_department = #{id}
         where dep_name = #{depName}
     </update>
-
+    <select id="searchDepartment" parameterType="java.lang.String" resultMap="department">
+        select * from departments
+        where dep_name like  '%' || #{depName} || '%'
+    </select>
     <insert id="insertDepartment" parameterType="Department">
         insert into departments (dep_name, creation_date, id_parent_department)
         <if test="#{depName} != dep_name">

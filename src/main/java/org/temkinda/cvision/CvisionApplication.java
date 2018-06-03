@@ -49,7 +49,12 @@ public class CvisionApplication implements CommandLineRunner {
         for (Department dep:
              departments) {
             System.out.println(dep.toString());
-        }
+        }*/
+        /*ArrayList<Department> departments = departmentMapper.searchDepartment("деп");
+        for (Department dep:
+             departments) {
+            System.out.println(dep.toString());
+        }*/
 
         //Department department1 = departmentMapper.showDepartmentInfo("департамент управления");
         //System.out.println(department1.toString());

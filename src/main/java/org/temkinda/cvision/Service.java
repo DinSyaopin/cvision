@@ -8,6 +8,7 @@ import org.temkinda.cvision.model.Department;
 import org.temkinda.cvision.model.DepartmentInfo;
 import org.temkinda.cvision.model.Employee;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -64,5 +65,9 @@ public class Service {
 
     public void transfereDepartment(Long idOfParentDepartment, String depName) {
         departmentMapper.transfereDepartment(idOfParentDepartment, depName);
+    }
+
+    public ArrayList<Department> searchDepartment(String depName) {
+        return departmentMapper.searchDepartment(depName);
     }
 }
