@@ -61,4 +61,10 @@ public class CVisionController {
     public List<Department> showChildDepartments(@PathVariable Long idOfParent) {
         return service.selectChildDepartments(idOfParent);
     }
+
+    @RequestMapping("transfereDepartment")
+    public void transfereDepartment(@RequestParam("idOfParentDepartment") Long idOfParentDepartment,
+                                    @RequestParam("depName") String depName) {
+        service.transfereDepartment(idOfParentDepartment, depName);
+    }
 }

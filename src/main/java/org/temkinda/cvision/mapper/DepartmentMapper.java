@@ -17,4 +17,5 @@ public interface DepartmentMapper {
     void changeNameDepartment(String depName, String depNameNew);
     void deleteDepartment(String depName);
     ArrayList<Department> selectChildDepartments(long id);
+    void transfereDepartment(Long id, String depName);
 }

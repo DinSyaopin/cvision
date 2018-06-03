@@ -61,4 +61,8 @@ public class Service {
     public List<Department> selectChildDepartments(Long id) {
         return departmentMapper.selectChildDepartments(id);
     }
+
+    public void transfereDepartment(Long idOfParentDepartment, String depName) {
+        departmentMapper.transfereDepartment(idOfParentDepartment, depName);
+    }
 }

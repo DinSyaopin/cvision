@@ -31,6 +31,11 @@
         select * from departments
         where id_parent_department = #{id}
     </select>
+    <update id="transfereDepartment" parameterType="Department">
+        update departments
+        set id_parent_department = #{id}
+        where dep_name = #{depName}
+    </update>
 
     <insert id="insertDepartment" parameterType="Department">
         insert into departments (dep_name, creation_date, id_parent_department)
