@@ -70,4 +70,8 @@ public class Service {
     public ArrayList<Department> searchDepartment(String depName) {
         return departmentMapper.searchDepartment(depName);
     }
+
+    public int getSalaryFundOfDepartment(Long idOfDepartment) {
+        return employeeMapper.getSalaryFundOfDepartment(idOfDepartment);
+    }
 }

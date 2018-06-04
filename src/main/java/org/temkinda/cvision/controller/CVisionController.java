@@ -25,7 +25,7 @@ public class CVisionController {
     }
     @RequestMapping("/selectDepartmentById/{id}")
     public Department selectDepartmentById(@PathVariable Long id) {
-       return service.selectDepartmentById(id);
+        return service.selectDepartmentById(id);
     }
 
     /*@RequestMapping("/")//почитать про post
@@ -71,5 +71,10 @@ public class CVisionController {
     @RequestMapping("/searchDepartment/{depName}")
     public ArrayList<Department> searchDepartment(@PathVariable String depName) {
         return service.searchDepartment(depName);
+    }
+
+    @RequestMapping("/getSalaryFundOfDepartment")
+    public int getSalaryFundOfDepartment(@RequestParam("idOfDepartment") Long idOfDepartment) {
+        return service.getSalaryFundOfDepartment(idOfDepartment);
     }
 }

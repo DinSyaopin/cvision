@@ -10,4 +10,6 @@ public interface EmployeeMapper {
     Employee selectEmployeeById(long id);
     Employee selectBossOfDepartment(long id);
     int countEmployeesFromDepartment(long id);
+
+    int getSalaryFundOfDepartment(long id);
 }

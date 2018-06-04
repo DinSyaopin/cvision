@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.temkinda.cvision.mapper.EmployeeMapper">
-    <resultMap id="employee" type="org.temkinda.cvision.model.Employee" autoMapping="true">
+    <resultMap id="employee" type="Employee" autoMapping="true">
         <result property="id" column="id"/>
         <result property="surname" column="surname"/>
         <result property="name" column="name"/>
@@ -31,6 +31,12 @@
     </select>
     <select id="countEmployeesFromDepartment" parameterType="java.lang.Long" resultType="java.lang.Integer">
         select count(id)
+        from employees
+        where id_department = #{id}
+        group by id_department
+    </select>
+    <select id="getSalaryFundOfDepartment" parameterType="java.lang.Long" resultType="int">
+        select sum(payment)
         from employees
         where id_department = #{id}
         group by id_department

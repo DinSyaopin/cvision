@@ -9,18 +9,18 @@
     <result property="id" column="id"/>
     <result property="depName" column="dep_name"/>
     <result property="creationDate" column="creation_date"/>
-    <result property="idParentDepartment"   column="id_parent_department"/>
+    <result property="idParentDepartment" column="id_parent_department"/>
     </resultMap>
     <!--
-    <resultMap id="detailedDepartmentInfo" type="Department">
-        <result property="depName" column="department_name"/>
-        <result property="creationDate" column="department_creation_date"/>
-        <association property="employee" resultMap="employeeResult"/>
-    </resultMap>
-    <resultMap id="employeeResult" type="Employee" autoMapping="true">
-        <result property="surname" column="employee_surname"/>
-    </resultMap>
-    -->
+        <resultMap id="detailedDepartmentInfo" type="Department">
+            <result property="depName" column="department_name"/>
+            <result property="creationDate" column="department_creation_date"/>
+            <association property="employee" resultMap="employeeResult"/>
+        </resultMap>
+        <resultMap id="employeeResult" type="Employee" autoMapping="true">
+            <result property="surname" column="employee_surname"/>
+        </resultMap>
+        -->
 
     <select id="selectDepartmentById" parameterType="java.lang.Long" resultMap = "department">
         select * from departments
