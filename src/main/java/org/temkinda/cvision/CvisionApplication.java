@@ -35,7 +35,10 @@ public class CvisionApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Department department = departmentMapper.selectDepartmentById(1);
+        employeeMapper.insertEmployee("Рыбин", "Михаил", "Валерьевич", 1,
+                (Date) new SimpleDateFormat("yyyy-MM-dd").parse("1964-06-4"), "89021526644", "rybinmv@company.com",
+                (Date) new SimpleDateFormat("yyyy-MM-dd").parse("2018-06-4"), 4, 40000, false, Long.parseLong("4"));
+        /*Department department = departmentMapper.selectDepartmentById(1);
         System.out.print("Дата создания департамента: ");
         System.out.println(department.getCreationDate());
         System.out.print("Название департамента: ");

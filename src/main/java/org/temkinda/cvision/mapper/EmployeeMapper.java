@@ -4,6 +4,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import org.temkinda.cvision.model.Employee;
 
+import java.util.Date;
+import java.util.List;
+
 @Mapper
 @Component
 public interface EmployeeMapper {
@@ -12,4 +15,8 @@ public interface EmployeeMapper {
     int countEmployeesFromDepartment(long id);
 
     int getSalaryFundOfDepartment(long id);
+
+    List<Employee> getEmployeesOfDepartment(long id);
+
+    Employee insertEmployee(String surname, String  name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment);
 }

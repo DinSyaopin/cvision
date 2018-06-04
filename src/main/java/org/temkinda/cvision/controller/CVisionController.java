@@ -77,4 +77,18 @@ public class CVisionController {
     public int getSalaryFundOfDepartment(@RequestParam("idOfDepartment") Long idOfDepartment) {
         return service.getSalaryFundOfDepartment(idOfDepartment);
     }
+
+    @RequestMapping("/getEmployeesOfDepartment")
+    public List<Employee> getEmployeesOfDepartment(@RequestParam("idOfDepartment") Long idOfDepartment) {
+        return service.getEmployeesOfDepartment(idOfDepartment);
+    }
+
+    @RequestMapping("/insertEmployee")
+    public Employee insertEmployee(@RequestParam("surname") String surname, @RequestParam("name") String name, @RequestParam("patronymic") String patronymic,
+                                   @RequestParam("idGender") int idGender, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("birthday") Date birthday,
+                                   @RequestParam("phoneNumber") String phoneNumber, @RequestParam("email") String email, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("employmentDate") Date employmentDate,
+                                   @RequestParam("idPosition") int idPosition, @RequestParam("payment") int payment, @RequestParam("isManager") boolean isManager,
+                                   @RequestParam("idDepartment") Long idDepartment) {
+        return service.insertEmployee(surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+    }
 }

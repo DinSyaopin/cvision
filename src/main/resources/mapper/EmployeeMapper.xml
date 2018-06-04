@@ -41,4 +41,13 @@
         where id_department = #{id}
         group by id_department
     </select>
+    <select id="getEmployeesOfDepartment" parameterType="java.lang.Long" resultMap="employee">
+        select *
+        from employees
+        where id_department = #{id}
+    </select>
+    <insert id="insertEmployee" parameterType="Employee">
+        insert into employees (surname, name, patronymic, id_gender, birthday, phone_number, email, employment_date, id_position, payment, is_manager, id_department)
+        values (#{surname}, #{name}, #{patronymic}, #{idGender}, #{birthday}, #{phoneNumber}, #{email}, #{employmentDate}, #{idPosition}, #{payment}, #{isManager}, #{idDepartment});
+    </insert>
 </mapper>

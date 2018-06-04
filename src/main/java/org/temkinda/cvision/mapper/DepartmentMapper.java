@@ -10,7 +10,6 @@ import java.util.Date;
 @Mapper
 @Component
 public interface DepartmentMapper {
-
     Department selectDepartmentById(long id);
     //void insertDepartment(long id, String depName, Date creationDate, long idParentDepartment);
     void insertDepartment(String depName, Date creationDate, long idParentDepartment);
