@@ -72,11 +72,8 @@
         where id_department = #{idFrom}
     </update>
     <select id="showBossOfEmployee" parameterType="java.lang.Long" resultMap="employee">
-        select * from employees e1
-        join (select id_department
-            from employees
-            where id = #{id}) e2
-        on e1.id = e2.id_department
-        where is_manager
+        select * from employees
+        where id_department = (select id_department from employees
+        where id = #{id}) and is_manager;
     </select>
 </mapper>
