@@ -74,6 +74,10 @@
     <select id="showBossOfEmployee" parameterType="java.lang.Long" resultMap="employee">
         select * from employees
         where id_department = (select id_department from employees
-        where id = #{id}) and is_manager;
+        where id = #{id}) and is_manager
+    </select>
+    <select id="searchEmployeeBySurnameDepartment" resultMap="employee">
+        select * from employees
+        where surname ilike '%' || #{surname} || '%' and id_department = (select distinct departments.id from departments where dep_name ilike '%' || #{depName} || '%')
     </select>
 </mapper>

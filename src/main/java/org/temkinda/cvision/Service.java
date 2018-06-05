@@ -104,4 +104,8 @@ public class Service {
     public Employee showBossOfEmployee(Long id) {
         return employeeMapper.showBossOfEmployee(id);
     }
+
+    public Employee searchEmployeeBySurnameDepartment(String surname, String depName) {
+        return employeeMapper.searchEmployeeBySurnameDepartment(surname, depName);
+    }
 }

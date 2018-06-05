@@ -117,4 +117,9 @@ public class CVisionController {
     public Employee showBossOfEmployee(@RequestParam("id") Long id) {
         return service.showBossOfEmployee(id);
     }
+
+    @RequestMapping("/searchEmployeeBySurnameDepartment")
+    public Employee searchEmployeeBySurnameDepartment(@RequestParam("surname") String surname, @RequestParam("depName") String depName) {
+        return service.searchEmployeeBySurnameDepartment(surname, depName);
+    }
 }

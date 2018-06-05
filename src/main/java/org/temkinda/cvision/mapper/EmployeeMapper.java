@@ -30,4 +30,6 @@ public interface EmployeeMapper {
     void transfereAllEmployeesOfDepartmentToAnotherDepartment(long idDepartment, long idDepartmentTo);
 
     Employee showBossOfEmployee(long id);
+
+    Employee searchEmployeeBySurnameDepartment(String surname, String depName);
 }
