@@ -19,10 +19,6 @@ public class CVisionController {
     @Autowired
     private Service service;
 
-    @RequestMapping("/selectEmployeeById/{id}")
-    public Employee selectEmployeeById(@PathVariable Long id) {
-        return service.selectEmployeeById(id);
-    }
     @RequestMapping("/selectDepartmentById/{id}")
     public Department selectDepartmentById(@PathVariable Long id) {
         return service.selectDepartmentById(id);
@@ -102,5 +98,14 @@ public class CVisionController {
     @RequestMapping("/dismissEmployee")
     public void dismissEmployee(@RequestParam("id") Long id, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("dismissalDate") Date dismissalDate) {
         service.dismissEmployee(id, dismissalDate);
+    }
+    @RequestMapping("/getEmployeeInfo")
+    public Employee getEmployeeInfo(@RequestParam("id") Long id) {
+        return service.getEmployeeInfo(id);
+    }
+
+    @RequestMapping("/transfereEmployeeToAnotherDepartment")
+    public void transfereEmployeeToAnotherDepartment(@RequestParam("id") Long id, @RequestParam("idDepartment") Long idDepartment) {
+        service.transfereEmployeeToAnotherDepartment(id, idDepartment);
     }
 }

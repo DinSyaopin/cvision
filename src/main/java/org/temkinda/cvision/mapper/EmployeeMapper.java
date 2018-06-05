@@ -10,7 +10,6 @@ import java.util.List;
 @Mapper
 @Component
 public interface EmployeeMapper {
-    Employee selectEmployeeById(long id);
     Employee selectBossOfDepartment(long id);
     int countEmployeesFromDepartment(long id);
 
@@ -23,4 +22,8 @@ public interface EmployeeMapper {
     void updateEmployee(long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment);
 
     void dismissEmployee(long id, Date dismissalDate);
+
+    Employee getEmployeeInfo(Long id);
+
+    void transfereEmployeeToAnotherDepartment(Long id, Long idDepartment);
 }

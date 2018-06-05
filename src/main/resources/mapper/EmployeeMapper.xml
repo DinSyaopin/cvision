@@ -21,7 +21,7 @@
         <result property="idDepartment" column="id_department"/>
     </resultMap>
 
-    <select id="selectEmployeeById" parameterType="java.lang.Long" resultMap="employee">
+    <select id="getEmployeeInfo" parameterType="java.lang.Long" resultMap="employee">
         select * from employees
         where id = #{id}
     </select>
@@ -59,6 +59,11 @@
     <update id="dismissEmployee" parameterType="Employee">
         update employees
         set dismissal_date = #{dismissalDate}, id_department = null
+        where id = #{id}
+    </update>
+    <update id="transfereEmployeeToAnotherDepartment" parameterType="Employee">
+        update employees
+        set id_department = #{idDepartment}
         where id = #{id}
     </update>
 </mapper>

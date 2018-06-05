@@ -23,11 +23,6 @@ public class Service {
         this.departmentMapper = departmentMapper;
         this.employeeMapper = employeeMapper;
     }
-
-    public Employee selectEmployeeById(Long id) {
-        return employeeMapper.selectEmployeeById(id);
-    }
-
     public Employee selectBossOfDepartment(Long id) {
         return employeeMapper.selectBossOfDepartment(id);
     }
@@ -92,5 +87,13 @@ public class Service {
 
     public void dismissEmployee(Long id, Date dismissalDate) {
         employeeMapper.dismissEmployee(id, dismissalDate);
+    }
+
+    public Employee getEmployeeInfo(Long id) {
+        return employeeMapper.getEmployeeInfo(id);
+    }
+
+    public void transfereEmployeeToAnotherDepartment(Long id, Long idDepartment) {
+        employeeMapper.transfereEmployeeToAnotherDepartment(id, idDepartment);
     }
 }
