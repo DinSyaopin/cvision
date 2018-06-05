@@ -79,10 +79,18 @@ public class Service {
         return employeeMapper.getEmployeesOfDepartment(idOfDepartment);
     }
 
-    public Employee insertEmployee(String surname, String name, String patronymic, int idGender,
+    public void insertEmployee(String surname, String name, String patronymic, int idGender,
                                    Date birthday, String phoneNumber, String email,
                                    Date employmentDate, int idPosition, int payment,
                                    boolean isManager, Long idDepartment) {
-        return employeeMapper.insertEmployee(surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+        employeeMapper.insertEmployee(surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+    }
+
+    public void updateEmployee(Long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment) {
+        employeeMapper.updateEmployee(id, surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+    }
+
+    public void dismissEmployee(Long id, Date dismissalDate) {
+        employeeMapper.dismissEmployee(id, dismissalDate);
     }
 }

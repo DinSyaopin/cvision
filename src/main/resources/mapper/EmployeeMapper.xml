@@ -50,4 +50,15 @@
         insert into employees (surname, name, patronymic, id_gender, birthday, phone_number, email, employment_date, id_position, payment, is_manager, id_department)
         values (#{surname}, #{name}, #{patronymic}, #{idGender}, #{birthday}, #{phoneNumber}, #{email}, #{employmentDate}, #{idPosition}, #{payment}, #{isManager}, #{idDepartment});
     </insert>
+    <update id="updateEmployee" parameterType="Employee">
+        update employees
+        set surname = #{surname}, name = #{name}, patronymic = #{patronymic}, id_gender = #{idGender},
+            birthday = #{birthday}, phone_number = #{phoneNumber}, email = #{email}, employment_date = #{employmentDate},
+            id_position = #{idPosition}, payment = #{payment}, is_manager = #{isManager}, id_department = #{idDepartment}
+    </update>
+    <update id="dismissEmployee" parameterType="Employee">
+        update employees
+        set dismissal_date = #{dismissalDate}, id_department = null
+        where id = #{id}
+    </update>
 </mapper>

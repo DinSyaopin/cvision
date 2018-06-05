@@ -3,26 +3,26 @@ package org.temkinda.cvision.model;
 import java.util.Date;
 
 public class Department {
-    private long id;
+    private Long id;
     private String depName;
     private Date creationDate;
-    private long idParentDepartment;
+    private Long idParentDepartment;
 
     public Department() {
     }
 
-    public Department(long id, String depName, Date creationDate, long idParentDepartment) {
+    public Department(Long id, String depName, Date creationDate, Long idParentDepartment) {
         this.id = id;
         this.depName = depName;
         this.creationDate = creationDate;
         this.idParentDepartment = idParentDepartment;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class Department {
         this.creationDate = creationDate;
     }
 
-    public long getIdParentDepartment() {
+    public Long getIdParentDepartment() {
         return idParentDepartment;
     }
 
-    public void setIdParentDepartment(long idParentDepartment) {
+    public void setIdParentDepartment(Long idParentDepartment) {
         this.idParentDepartment = idParentDepartment;
     }
 

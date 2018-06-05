@@ -18,5 +18,9 @@ public interface EmployeeMapper {
 
     List<Employee> getEmployeesOfDepartment(long id);
 
-    Employee insertEmployee(String surname, String  name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment);
+    void insertEmployee(String surname, String  name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment);
+
+    void updateEmployee(long id, String surname, String name, String patronymic, int idGender, Date birthday, String phoneNumber, String email, Date employmentDate, int idPosition, int payment, boolean isManager, Long idDepartment);
+
+    void dismissEmployee(long id, Date dismissalDate);
 }

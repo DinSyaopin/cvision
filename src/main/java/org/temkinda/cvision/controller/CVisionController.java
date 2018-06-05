@@ -84,11 +84,23 @@ public class CVisionController {
     }
 
     @RequestMapping("/insertEmployee")
-    public Employee insertEmployee(@RequestParam("surname") String surname, @RequestParam("name") String name, @RequestParam("patronymic") String patronymic,
+    public void insertEmployee(@RequestParam("surname") String surname, @RequestParam("name") String name, @RequestParam("patronymic") String patronymic,
                                    @RequestParam("idGender") int idGender, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("birthday") Date birthday,
                                    @RequestParam("phoneNumber") String phoneNumber, @RequestParam("email") String email, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("employmentDate") Date employmentDate,
                                    @RequestParam("idPosition") int idPosition, @RequestParam("payment") int payment, @RequestParam("isManager") boolean isManager,
                                    @RequestParam("idDepartment") Long idDepartment) {
-        return service.insertEmployee(surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+        service.insertEmployee(surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+    }
+    @RequestMapping("/updateEmployee")
+    public void updateEmployee(@RequestParam("id") Long id, @RequestParam("surname") String surname, @RequestParam("name") String name, @RequestParam("patronymic") String patronymic,
+                               @RequestParam("idGender") int idGender, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("birthday") Date birthday,
+                               @RequestParam("phoneNumber") String phoneNumber, @RequestParam("email") String email, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("employmentDate") Date employmentDate,
+                               @RequestParam("idPosition") int idPosition, @RequestParam("payment") int payment, @RequestParam("isManager") boolean isManager,
+                               @RequestParam("idDepartment") Long idDepartment) {
+        service.updateEmployee(id, surname, name, patronymic, idGender, birthday, phoneNumber, email, employmentDate, idPosition, payment, isManager, idDepartment);
+    }
+    @RequestMapping("/dismissEmployee")
+    public void dismissEmployee(@RequestParam("id") Long id, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("dismissalDate") Date dismissalDate) {
+        service.dismissEmployee(id, dismissalDate);
     }
 }
