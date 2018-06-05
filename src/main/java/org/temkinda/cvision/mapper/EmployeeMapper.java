@@ -23,7 +23,11 @@ public interface EmployeeMapper {
 
     void dismissEmployee(long id, Date dismissalDate);
 
-    Employee getEmployeeInfo(Long id);
+    Employee getEmployeeInfo(long id);
 
-    void transfereEmployeeToAnotherDepartment(Long id, Long idDepartment);
+    void transfereEmployeeToAnotherDepartment(long id, long idDepartment);
+
+    void transfereAllEmployeesOfDepartmentToAnotherDepartment(long idDepartment, long idDepartmentTo);
+
+    Employee showBossOfEmployee(long id);
 }

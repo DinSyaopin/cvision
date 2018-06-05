@@ -96,4 +96,12 @@ public class Service {
     public void transfereEmployeeToAnotherDepartment(Long id, Long idDepartment) {
         employeeMapper.transfereEmployeeToAnotherDepartment(id, idDepartment);
     }
+
+    public void transfereAllEmployeesOfDepartmentToAnotherDepartment(Long idDepartment, Long idDepartmentTo) {
+        employeeMapper.transfereAllEmployeesOfDepartmentToAnotherDepartment(idDepartment, idDepartmentTo);
+    }
+
+    public Employee showBossOfEmployee(Long id) {
+        return employeeMapper.showBossOfEmployee(id);
+    }
 }

@@ -108,4 +108,13 @@ public class CVisionController {
     public void transfereEmployeeToAnotherDepartment(@RequestParam("id") Long id, @RequestParam("idDepartment") Long idDepartment) {
         service.transfereEmployeeToAnotherDepartment(id, idDepartment);
     }
+    @RequestMapping("/transfereAllEmployeesOfDepartmentToAnotherDepartment")
+    public void transfereAllEmployeesOfDepartmentToAnotherDepartment(@RequestParam("idDepartmentFrom") Long idDepartment,
+                                                                     @RequestParam("idDepartmentFromTo") Long idDepartmentTo) {
+        service.transfereAllEmployeesOfDepartmentToAnotherDepartment(idDepartment, idDepartmentTo);
+    }
+    @RequestMapping("/showBossOfEmployee")
+    public Employee showBossOfEmployee(@RequestParam("id") Long id) {
+        return service.showBossOfEmployee(id);
+    }
 }
