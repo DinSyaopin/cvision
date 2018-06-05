@@ -6,6 +6,7 @@ import org.temkinda.cvision.model.Department;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Mapper
 @Component
@@ -18,4 +19,8 @@ public interface DepartmentMapper {
     ArrayList<Department> selectChildDepartments(long id);
     void transfereDepartment(Long id, String depName);
     ArrayList<Department> searchDepartment(String depName);
+
+    List<Department> showSubordinateDepartments(Long id);
+
+    List<Department> showParentDepartments(Long id);
 }

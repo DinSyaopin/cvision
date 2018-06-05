@@ -108,4 +108,12 @@ public class Service {
     public Employee searchEmployeeBySurnameDepartment(String surname, String depName) {
         return employeeMapper.searchEmployeeBySurnameDepartment(surname, depName);
     }
+
+    public List<Department> showSubordinateDepartments(Long id) {
+        return departmentMapper.showSubordinateDepartments(id);
+    }
+
+    public List<Department> showParentDepartments(Long id) {
+        return departmentMapper.showParentDepartments(id);
+    }
 }
